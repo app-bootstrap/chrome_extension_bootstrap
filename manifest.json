@@ -1,0 +1,30 @@
+{
+  "name": "chrome_extension_bootstrap",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Scaffold out a Chrome extension",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "background": {
+    "scripts": [
+      "scripts/chromereload.js",
+      "scripts/background.js"
+    ]
+  },
+  "content_scripts": [{
+    "js": [
+      "scripts/contentscript.js"
+    ],
+    "matches": ["*://*/*"],
+    "run_at": "document_start"
+  }],
+  "permissions": [
+    "background",
+    "notifications",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
